@@ -1,9 +1,11 @@
 # Tunafish
 
-MEMBER NAMES: YOUR NAME HERE 
+MEMBER NAMES: Molly Thompson,
+Anna Perlow,
+Star Hagen-Esquerra,
+Brian Cao
 
-Star Hagen-Esquerra
-Molly Thompson
+
 
 Minecraft Ocean: 
 https://sketchfab.com/3d-models/oceanic-hub-2bff7dcf90ee4c97b48bde28f1ba6bc3?cursor=cD0yMDIwLTEyLTA0VDEyJTNBMjElM0EwNS4xNDA5NDE%3D
