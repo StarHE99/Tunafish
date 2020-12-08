@@ -45,6 +45,12 @@ function init() {
   camera.add( pointLight );
   scene.add( camera );
 
+
+  const geometry = new THREE.TorusKnotGeometry(15, 1, 40, 80);
+  const material = new THREE.MeshBasicMaterial({ color: 0xbcd9ff });
+  const knot = new THREE.Mesh(geometry, material);
+  knot.position.y = 5; //move it to the right
+  scene.add(knot);
   // manager
 
   function loadModel() {
@@ -129,12 +135,16 @@ function onDocumentMouseMove( event ) {
 //
 
 function animate() {
-
+  
+  //rotateObject(knot, -0.02, 0.01);
   requestAnimationFrame( animate );
   render();
 
 }
-
+function rotateObject(o, dx, dy) {
+  o.rotation.x += dx;
+  o.rotation.y += dy;
+}
 function render() {
 
   //camera.position.x += ( mouseX - camera.position.x ) * .05;
