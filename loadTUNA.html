@@ -9,8 +9,13 @@
    <script type="module">
 
     import * as THREE from './js/build/three.module.js'
+    import { MTLLoader } from "./js/examples/jsm/loaders/MTLLoader.js";
     import { OrbitControls } from './js/examples/jsm/controls/OrbitControls.js'
     import { OBJLoader } from './js/examples/jsm/loaders/OBJLoader.js'; 
+    import { OBJLoader2 } from "/js/examples/jsm/loaders/OBJLoader2.js";
+    import { MtlObjBridge } from "./js/examples/jsm/loaders/MtlObjBridge.js";
+    
+
     let container;
 
     let camera, scene, renderer, controls;
@@ -70,8 +75,8 @@
 
     // texture
 
-    const textureLoader = new THREE.TextureLoader( manager );
-    const texture = textureLoader.load( 'images/uv_grid_opengl.jpg' );
+  //  const textureLoader = new THREE.TextureLoader( manager );
+  //  const texture = textureLoader.load( 'images/uv_grid_opengl.jpg' );
 
     // model
 
@@ -87,13 +92,19 @@
     }
 
     function onError() {}
-
-    const loader = new OBJLoader( manager );
-    loader.load( 'obj/chewna_1.obj', function ( obj ) {
-
+      const mtlLoader = new MTLLoader();
+      mtlLoader.load('obj/chewna_1.mtl', (mtlParseResult) => {
+      const loader = new OBJLoader2( manager);
+      const materials = MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
+      loader.addMaterials(materials);
+      loader.load( 'obj/chewna_1.obj', function ( obj ) {
+      scene.add(obj);
       object = obj;
 
-    }, onProgress, onError );
+    }
+      
+      , onProgress, onError );
+    });
 
     //
 
