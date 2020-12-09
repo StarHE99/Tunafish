@@ -45,7 +45,7 @@
     scene.add( camera );
 
 
-    const geometry = new THREE.TorusKnotGeometry(15, 1, 40, 80);
+    const geometry = new THREE.TorusKnotGeometry(20, 3, 90, 300, 2, 3);
     const material = new THREE.MeshBasicMaterial({ color: 0xbcd9ff });
     const knot = new THREE.Mesh(geometry, material);
     knot.position.y = 5; //move it to the right
