@@ -52,6 +52,10 @@
     scene.add(knot);
     // manager
 
+
+
+
+
     function loadModel() {
 
       object.traverse( function ( child ) {
@@ -111,6 +115,7 @@
     renderer = new THREE.WebGLRenderer();
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( 0x131954 )
     container.appendChild( renderer.domElement );
 
     controls = new OrbitControls(camera, renderer.domElement);
